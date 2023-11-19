@@ -250,17 +250,10 @@ void introSort(int arr[], int n) {
     quickSort(arr, 0, n - 1, maxDepth);
 }
 //__________ СОРТИРОВКА ШЕЛЛА __________//
-/*
-#include <iostream>
-#include <vector>
-using namespace std;
-
-// Функция для сортировки методом Шелла
-template <class T>
-void shellSort(T arr[], int n, vector<int> gapSequence) {
-    for (int gap : gapSequence) {
-        for (int i = gap; i < n; i++) {
-            T temp = arr[i];
+void shellSort(int arr[], int n, int gap) {
+    for (int gap = n / 2; gap > 0; gap /= 2) {
+        for (int i = gap; i < n; i += 1) {
+            int temp = arr[i];
             int j;
             for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) {
                 arr[j] = arr[j - gap];
@@ -269,30 +262,3 @@ void shellSort(T arr[], int n, vector<int> gapSequence) {
         }
     }
 }
-
-int main() {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = sizeof(arr)/sizeof(arr[0]);
-
-    cout << "Исходный массив: \n";
-    for (int i=0; i<n; ++i)
-        cout << arr[i] << " ";
-    cout << "\n";
-
-    // Примеры различных последовательностей для сортировки Шелла
-    vector<int> gapSequence1 = {5, 3, 1}; // Худший случай O(n^2)
-    vector<int> gapSequence2 = {4, 2, 1}; // Средний случай O(n^(3/2))
-    vector<int> gapSequence3 = {1}; // Лучший случай O(n*log(n))
-
-    shellSort(arr, n, gapSequence1); // Сортировка с худшей асимптотикой
-    // shellSort(arr, n, gapSequence2); // Сортировка со средней асимптотикой
-    // shellSort(arr, n, gapSequence3); // Сортировка с лучшей асимптотикой
-
-    cout << "Отсортированный массив: \n";
-    for (int i=0; i<n; ++i)
-        cout << arr[i] << " ";
-    cout << "\n";
-
-    return 0;
-}
-*/

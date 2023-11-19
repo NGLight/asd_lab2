@@ -34,8 +34,8 @@ enum COLORS{
 	White = 15
 };
 void setTextColor(int action){
-    int color[9] = {14,11,3,9,1,5,13,12,4};
-    while (action > 9) action -= 9;
+    int color[11] = {11,3,9,1,5,13,12,4,6,14,10};
+    while (action > 10) action -= 10;
     setColor(color[action]);
 
 }
